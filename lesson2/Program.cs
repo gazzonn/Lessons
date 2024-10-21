@@ -11,7 +11,9 @@ namespace lesson2
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("\"Guess the Number\" by gazzonn\nI thought of a number, try to guess it!");
+            Console.WriteLine("\"Guess the Number\" by gazzonn");
+        Start:
+            Console.WriteLine("I thought of a number, try to guess it!");
             int randomNumber = GenerateNumber();
             while (true)
             {
@@ -33,7 +35,24 @@ namespace lesson2
                     Console.WriteLine("The input must be integer.");
                 }
             }
-            
+            Console.WriteLine("Would you like to play again? (Y or N)");
+            while (true)
+            {
+                string answer = Convert.ToString(Console.ReadLine());
+                if (answer == "Y" || answer == "y")
+                {
+                    goto Start;
+                }
+                else if (answer == "N" || answer == "n")
+                {
+                    Console.WriteLine("Thank you for playing! Bye <3");
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("The input must be Y (y) or N (n).");
+                }
+            }
         }
         static int GenerateNumber()
         {
