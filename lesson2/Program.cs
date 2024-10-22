@@ -13,7 +13,7 @@ namespace lesson2
         {
             Console.WriteLine("\"Guess the Number\" by gazzonn");
         Start:
-            Console.WriteLine("I thought of a number, try to guess it!");
+            Console.WriteLine("Choose the difficulty: Easy (1), Medium (2) or Hard (3).");
             int randomNumber = GenerateNumber();
             while (true)
             {
@@ -57,7 +57,32 @@ namespace lesson2
         static int GenerateNumber()
         {
             Random rnd = new Random();
-            return rnd.Next(1, 11);
+            while (true)
+            {
+                string difficulty = Convert.ToString(Console.ReadLine());
+                if (difficulty == "1")
+                {
+                    Console.WriteLine("I have chosen the number from 1 to 10. Try to guess it!");
+                    return rnd.Next(1, 11);
+                    break;
+                }
+                else if (difficulty == "2")
+                {
+                    Console.WriteLine("I have chosen the number from 1 to 100. Try to guess it!");
+                    return rnd.Next(1, 101);
+                    break;
+                }
+                else if (difficulty == "3")
+                {
+                    Console.WriteLine("I have chosen the number from 1 to 1000. Try to guess it!");
+                    return rnd.Next(1, 1001);
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("The input must be 1, 2 or 3.");
+                }
+            }
         }
     }
 }
