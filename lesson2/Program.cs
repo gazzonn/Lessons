@@ -27,7 +27,14 @@ namespace lesson2
                     }
                     else
                     {
-                        Console.WriteLine("No. Try again!");
+                        if (guessedNumber - randomNumber < 0)
+                        {
+                            Console.WriteLine("No. Try a bigger number!");
+                        }
+                        else
+                        {
+                            Console.WriteLine("No. Try a smaller number!");
+                        }
                     }
                 }
                 catch
