@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Books</title>
+</head>
+<body>
+    <h1>Books</h1>
+    {% for book in books %}
+    <p>
+        <b>{{ loop.index }}. {{ book['title'] }}</b> by {{ book['author'] }} ({{ book['year'] }}) |
+        <a href="/edit/{{ book['id'] }}">Edit</a> |
+        <a href="/delete/{{ book['id'] }}" onclick="return confirm('Are you sure?');">Delete</a>
+    </p>
+    {% endfor %}
+    <br>
+    <a href="{{ url_for('add') }}">Add Book</a>
+</body>
+</html>
